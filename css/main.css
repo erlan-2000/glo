@@ -12,6 +12,7 @@ body {
 }
 
 header {
+    overflow: hidden;
     position: relative;
     height: 100vh;
     background-color: #1a1552;
@@ -44,6 +45,14 @@ header {
     padding-right: 50px;
 }
 
+/* Условие для экранов с размером до 768px */
+@media (max-width: 768px) {
+    .nav-container {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}
+
 .logo {
     font-size: 32px;
     font-weight: 800;
@@ -61,6 +70,14 @@ header {
     margin: 0;
     padding: 0;
     display: flex;
+}
+
+/* Условие для экранов шириной от 0 до 1200px */
+@media (max-width: 1200px) {
+    .nav {
+    display: none;
+}
+
 }
 
 .nav__item {
@@ -83,3 +100,125 @@ header {
     color: orange;
 }
 
+/* -------- Mobeli navigation buttom -------- */
+
+.menu-icon {
+  z-index: 19;
+  position: relative;
+  display: none;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+
+/* Условие для экранов шириной от 0 до 1200px */
+@media (max-width: 1200px) {
+    .menu-icon {
+        display: flex;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+.menu-icon-line {
+  position: relative;
+  width: 30px;
+  height: 5px;
+  background-color: #fff;
+}
+
+.menu-icon-line::before {
+  position: absolute;
+  left: 0;
+  top: -10px;
+  content: '';
+  width: 30px;
+  height: 5px;
+  background-color: #fff;
+  transition: transform 0.2s ease-in, top 0.2s linear 0.2s;
+
+}
+
+.menu-icon-line::after {
+  position: absolute;
+  left: 0;
+  top: 10px;
+  content: '';
+  width: 30px;
+  height: 5px;
+  background-color: #fff;
+  transition: transform 0.2s ease-in, top 0.2s linear 0.2s;
+
+}
+
+.menu-icon.menu-icon-active .menu-icon-line {
+  background-color: transparent;
+}
+
+.menu-icon.menu-icon-active .menu-icon-line::before {
+  transform: rotate(45deg);
+  top: 0;
+  transition: top 0.2s linear, transform 0.2s ease-in 0.2s;
+}
+
+.menu-icon.menu-icon-active .menu-icon-line::after {
+  transform: rotate(-45deg);
+  top: 0;
+  transition: top 0.2s linear, transform 0.2s ease-in 0.2s;
+}
+
+/* --------- Mobile navigation --------- */
+
+.mobile-nav {
+    z-index: 9;
+    display: block;
+    position: absolute;
+    right: -350px;
+    top: 0;
+    height: 100%;
+    width: 350px;
+    padding: 50px;
+    background-color: rgb(1, 4, 56, 0.8);
+    transition: transform 0.4s ease-in;
+}
+
+/* Условие для экранов с размером до 768px */
+@media (max-width: 768px) {
+    .mobile-nav {
+        width: 320px;
+        right: -320px;
+    }
+}
+
+.mobile-nav--active {
+    transform: translateX(-100%);
+}
+
+.mobile-nav__title {
+    font-size: 28px;
+    font-weight: 800;
+    margin-bottom: 30px;
+    color: rgb(244, 255, 28);
+}
+
+.mobile-nav__list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.mobile-nav__item {
+    margin-bottom: 30px;
+}
+
+.mobile-nav__link {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 22px;
+}
+
+.mobile-nav__link:hover {
+    color: orange;
+}
