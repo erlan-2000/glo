@@ -29,3 +29,10 @@ header {
     background-color: #1a1552;
     opacity: 0.3;
 }
+
+.nav-wrapper {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 100px;
+}
